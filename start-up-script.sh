@@ -1,8 +1,10 @@
+#!/bin/bash
+set -e
 echo 'Initialising....'
 echo 'Starting Script....'
 
 update(){
-    echo 'Updating....'
+    echo 'Updating ....'
     sudo apt update
 }
 
@@ -20,7 +22,6 @@ install_git(){
     read giturl
     echo 'Cloning git repo....'
     git clone $giturl
-
 }
 
 install_virtualenv_flask(){
@@ -29,6 +30,7 @@ install_virtualenv_flask(){
     python3 -m venv env
     echo 'Enter your project name'
     read projectname
+    ls
     cd $projectname
     source env/bin/activate
 
@@ -37,7 +39,6 @@ install_virtualenv_flask(){
     pip3 install "Flask==1.1.2"
     pip3 install "Flask-migrate==2.7.0"
     pip3 install flask-script
-
 }
 
 setupDatabase(){
@@ -59,11 +60,14 @@ startApp(){
    python3 manage.py runserver 0.0.0.0
 }
 
+main(){
+    update
+    install_git
+    install_python_pip
+    install_virtualenv_flask
+    setupDatabase
+    startApp
+}
 
+main
 
-update
-install_python_pip
-install_git
-install_virtualenv_flask
-setupDatabase
-startApp
