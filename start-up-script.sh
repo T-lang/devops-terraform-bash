@@ -32,7 +32,7 @@ install_virtualenv_flask(){
     ls
     cd ~/$projectname
     ls
-    source ~/env/bin/activate
+    source env/bin/activate
 
     echo 'Installing items in requirements.txt file....'
     set +e
