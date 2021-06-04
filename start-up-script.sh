@@ -30,8 +30,9 @@ install_virtualenv_flask(){
     echo 'Enter your project name'
     read projectname
     ls
-    cd $projectname
-    source env/bin/activate
+    cd ~/$projectname
+    ls
+    source ~/env/bin/activate
 
     echo 'Installing items in requirements.txt file....'
     pip3 install -r requirements.txt
