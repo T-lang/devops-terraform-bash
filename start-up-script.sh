@@ -35,7 +35,9 @@ install_virtualenv_flask(){
     source ~/env/bin/activate
 
     echo 'Installing items in requirements.txt file....'
+    set +e
     pip3 install -r requirements.txt
+    set -e
     pip3 install "Flask==1.1.2"
     pip3 install "Flask-migrate==2.7.0"
     pip3 install flask-script
