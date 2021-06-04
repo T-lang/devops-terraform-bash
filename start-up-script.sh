@@ -11,7 +11,6 @@ update(){
 install_python_pip(){
     echo 'Installing python, pip....'
     sudo apt install python3 python3-dev python3-venv
-    sudo python3 get-pip.py
     sudo apt-get install python3-pip
 }
 
